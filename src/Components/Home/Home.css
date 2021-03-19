@@ -1,0 +1,10 @@
+.all-button{
+  background-image: linear-gradient( to right, rgba(255,0,0,0), rgba(255,0,0,1));
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-weight: 800;
+}
+.card{
+  border: none;
+  margin-top: 50px;
+}

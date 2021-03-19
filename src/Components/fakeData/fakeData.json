@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1",
+    "city": "Dhaka",
+    "tk": 50,
+    "taka": 50,
+    "taka": 50,
+    "taka": 50,
+    "email": "ecroisdall0@nymag.com",
+    "color": "blue"
+  }, {
+    "id": "2",
+    "city": "Khulna",
+    "tk": 1000,
+    "taka": 80,
+    "taka": 80,
+    "taka": 80,
+    "email": "tdudley1@goodreads.com",
+    "color": "green"
+  }, {
+    "id": "3",
+    "city": "Shylet",
+    "tk": 6000,
+    "taka": 120,
+    "taka": 120,
+    "taka": 120,
+    "email": "ijeroch2@etsy.com",
+    "color": "pink"
+  }, {
+    "id": "4",
+    "city": "Chittagong",
+    "tk": 9000,
+    "taka": 300,
+    "taka": 300,
+    "taka": 300,
+    "email": "jlorrie3@npr.org",
+    "color": "red"
+  }
+]

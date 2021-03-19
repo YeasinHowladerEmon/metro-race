@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Ticket = () => {
+const Ticket = (props) => {
+    const ticket = props.ticket;
     return (
-        <div>
-            
-        </div>
+      <div>
+          <h1></h1>
+      </div>
     );
 };
 
