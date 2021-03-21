@@ -12,7 +12,7 @@ const Ticket = (props) => {
   //   history.push(`/tickets/${name}`)
   // }
 
-
+console.log(ticket.id);
   return (
     <div className="justify-content-center div-content">
       <div className="card text-white " >

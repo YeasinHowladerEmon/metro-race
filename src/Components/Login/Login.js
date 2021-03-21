@@ -21,7 +21,7 @@ const Login = () => {
 
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/destination" } };
+    const { from } = location.state || { from: { pathname: "/destination/:id" } };
 
     const handleGoogleSign = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
