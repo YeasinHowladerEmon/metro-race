@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Container, Form, Section } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Form} from 'react-bootstrap';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import googleSign from '../../images/Group 573.png'
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { UserContext } from '../../App';
+import './Login.css'
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -16,15 +17,17 @@ if (!firebase.apps.length) {
 
 const Login = () => {
     const [newLogin, setNewLogin] = useState(true)
-
     const [user, setUser] = useContext(UserContext);
+
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
 
     const handleGoogleSign = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
-                /** @type {firebase.auth.OAuthCredential} */
                 var credential = result.credential;
                 var token = credential.accessToken;
 
@@ -37,6 +40,7 @@ const Login = () => {
 
                 }
                 setUser(signedInUser)
+                history.replace(from)
 
             }).catch((error) => {
 
@@ -81,6 +85,7 @@ const Login = () => {
                     newUserInfo.error = '';
                     newUserInfo.success = true
                     setUser(newUserInfo)
+                    history.replace(from);
                     // ...
                 })
                 .catch((error) => {
@@ -99,6 +104,7 @@ const Login = () => {
                     newUserInfo.error = '';
                     newUserInfo.success = true
                     setUser(newUserInfo)
+                    history.replace(from)
                 })
                 .catch((error) => {
                     const newUserInfo = { ...user };
@@ -112,38 +118,48 @@ const Login = () => {
     }
     return (
     <>
-        <Section className="get-in-touch">       
+        <section className="get-in-touch">       
                 {
                     newLogin ? <h1 className="title">create form</h1> : <h1 className="title"> login form</h1>
                 }
             <Container>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="formBasicEmail">
+                <Form onSubmit={handleSubmit} className="contact-form">
+                   
+                    <Form.Group className="form-field">
                         {
-                            newLogin && <Form.Control onBlur={handleBlur} name="name" type="name" placeholder="Enter Your name" required />
+                            newLogin && <input onBlur={handleBlur} name="name" className="Input-text" type="name" placeholder="" required /> 
                         }
-                        <br />
-                        <Form.Control onBlur={handleBlur} name="email" type="email" placeholder="Enter email" required />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Control onBlur={handleBlur} name="password" type="password" placeholder="Password" required />
-
-                        <br />
                         {
-                            newLogin && <Form.Control onBlur={handleBlur} name="conform " type="password" placeholder="Conform Password" required />
+                            newLogin && <Form.Label className='Label'>Your Name</Form.Label>
                         }
+                     
                     </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
+                    <Form.Group  className="form-field">
+                        <input onBlur={handleBlur} name="email" type="email" className="Input-text"
+                        placeholder="" required />
+                        
+                        <Form.Label className='Label'>Email address</Form.Label>
+                       
+                    </Form.Group>
+                    <Form.Group  className="form-field">
+                        <input onBlur={handleBlur} name="password" type="password" className="Input-text" placeholder="" required />
+                        <Form.Label className='Label'>Password</Form.Label>
+                    </Form.Group>
+                    <Form.Group className="form-field">
                         {
-                            newLogin ? <Link onClick={() => setNewLogin(!newLogin)}>Login</Link> : <Link onClick={() => setNewLogin(!newLogin)}>create</Link>
-                            
+                            newLogin && <input onBlur={handleBlur} name="conform " className="Input-text" type="password" placeholder="" required /> 
+                        }
+                        {
+                            newLogin &&  <Form.Label className='Label'>Conform Password</Form.Label>
+                        }
+                        
+                    </Form.Group>
+                    <Form.Group >
+                        {
+                            newLogin ? <p style={{marginLeft: '30px'}}>AL READY HAVE AN ACCOUNT ? <Link onClick={() => setNewLogin(!newLogin)}>LOGIN</Link> </p>: <p style={{marginLeft: '30px'}}> DON'T HAVE AN ACCOUNT ? <Link onClick={() => setNewLogin(!newLogin)}>CREATE AN ACCOUNT</Link></p>
                         }
                     </Form.Group>
-                    <input type="submit" value="Submit" />
+                    <input className="submit-btn" type="submit" value="Submit" />
                     <p style={{ color: 'red' }} className="">
                         {user.error}
                     </p>
@@ -152,24 +168,16 @@ const Login = () => {
                     }
 
                 </Form>
+                <hr />
+                <p style={{textAlign: 'center'}} className="me-2">Or, </p>
+                <div onClick={handleGoogleSign} style={{ cursor: 'pointer' }} className="">
+                    <div className="d-flex justify-content-center align-items-center connect ">
+                        <img style={{ width: 30, cursor: 'pointer' }} src={googleSign} alt="" />
+                        <p style={{marginLeft:'10px', marginTop:"10px"}}>Connect with google</p>
+                    </div>
+                </div>
             </Container>
-        </Section>    
-            <hr />
-            <span className="me-2">Or, </span>
-            <div onClick={handleGoogleSign} style={{ cursor: 'pointer' }}>
-                <div className="d-flex justify-content-center align-items-center mt-4 text-secondary">
-                    <img style={{ width: 30, cursor: 'pointer' }} src={googleSign} alt="" /> <br /> <br />
-                    <p>Conect with google</p>
-                </div>
-            </div>
-
-            {
-                user.isSignedIn && <div>
-                    <h3>welcome, {user.name}</h3>
-                    <h3>your email: {user.email}</h3>
-                    <img src={user.photo} alt="" />
-                </div>
-            }
+            </section>  
     </>
     );
 };

@@ -1,10 +1,14 @@
 .all-button{
-  background-image: linear-gradient( to right, rgba(255,0,0,0), rgba(255,0,0,1));
+  background-image: linear-gradient(to right, #f4524d 0%, #5543ca 100%);
   padding: 15px 25px;
   border-radius: 30px;
   font-weight: 800;
+  color: white;
 }
 .card{
   border: none;
   margin-top: 50px;
+}
+.div-content{
+  margin-top: 200px;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, FormGroup, ListGroup } from 'react-bootstrap';
-import { useHistory, useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import img from '../../images/image 6.png'
 import fakeData from '../fakeData/fakeData.json'
 
@@ -22,7 +22,7 @@ const Tickets = () => {
 
     return (
         <div style={{ height: "100vh", backgroundColor: "#3aafa9" }}>
-        <div className="container">
+        <div className="">
           <div className="row">
             <div className="col-md-3 p-5">
               <Form>
@@ -54,15 +54,15 @@ const Tickets = () => {
               {state && (
                 <ListGroup className=" py-3">
                   <ListGroup.Item className="d-flex p-2 my-3" variant="primary">
-                    <img className="img mr-3" src="" alt="" />{" "}
-                    {/* <h3 className="mr-2">{tickets.name}</h3> <h3>200tk</h3> */}
+                    <img className="img mr-3" src={tickets.ticketImg} alt="" />{" "}
+                    <h3 className="mr-2">{tickets.name}</h3> <h3>200tk</h3>
                   </ListGroup.Item>
                   <ListGroup.Item className="d-flex p-2 my-3" variant="primary">
-                    <img className="img mr-3" src="" alt="" />{" "}
+                    <img className="img mr-3" src={tickets.ticketImg} alt="" />{" "}
                     <h3 className="mr-2">hlw</h3> <h3>250tk</h3>
                   </ListGroup.Item>
                   <ListGroup.Item className="d-flex p-2 my-3" variant="primary">
-                    <img className="img mr-3" src="" alt="" />{" "}
+                    <img className="img mr-3" src={tickets.ticketImg} alt="" />{" "}
                     <h3 className="mr-2">hello</h3> <h3>300tk</h3>
                   </ListGroup.Item>
                 </ListGroup>

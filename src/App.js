@@ -14,12 +14,13 @@ import Login from './Components/Login/Login';
 import { createContext, useState } from 'react';
 import Tickets from './Components/Tickiets/Tickets';
 import fakeData from '../src/Components/fakeData/fakeData.json'
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
 function App() {
   const [user, setUser] = useState({
-    isSignedIn:"false",
+    isSignedIn: false,
     name:'',
     email:'',
     photo:'',
@@ -41,9 +42,9 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/tickets/:id">
+            <PrivateRoute path="/tickets/:id">
               <Tickets />
-            </Route>
+            </PrivateRoute>
             <Route exact path="/">
               <Home />
             </Route>
