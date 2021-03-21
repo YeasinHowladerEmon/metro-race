@@ -12,9 +12,8 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import { createContext, useState } from 'react';
-import Tickets from './Components/Tickiets/Tickets';
-import fakeData from '../src/Components/fakeData/fakeData.json'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Destination from './Components/Destination/Destination'
 
 export const UserContext = createContext();
 
@@ -42,8 +41,8 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <PrivateRoute path="/tickets/:id">
-              <Tickets />
+            <PrivateRoute path="/destination/:id">
+              <Destination />
             </PrivateRoute>
             <Route exact path="/">
               <Home />

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import img from '../../images/image 6.png'
 import fakeData from '../fakeData/fakeData.json'
 
-const Tickets = () => {
+const Destination = () => {
     // let {id} = useParams();
     // const tickets = fakeData.find(res =>res.id === id)
     // console.log(tickets);
@@ -44,13 +44,14 @@ const Tickets = () => {
                     required
                   />
                 </div>
-              </Form>
+             
               <button
                 onClick={handleSearch}
                 className="btn btn-primary btn-block"
               >
                 Search
               </button>
+              </Form>
               {state && (
                 <ListGroup className=" py-3">
                   <ListGroup.Item className="d-flex p-2 my-3" variant="primary">
@@ -99,4 +100,4 @@ const Tickets = () => {
     );
 };
 
-export default Tickets;
+export default Destination;

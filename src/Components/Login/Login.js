@@ -21,7 +21,7 @@ const Login = () => {
 
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
+    const { from } = location.state || { from: { pathname: "/destination" } };
 
     const handleGoogleSign = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -149,6 +149,7 @@ const Login = () => {
                         {
                             newLogin && <input onBlur={handleBlur} name="conform " className="Input-text" type="password" placeholder="" required /> 
                         }
+                        
                         {
                             newLogin &&  <Form.Label className='Label'>Conform Password</Form.Label>
                         }
