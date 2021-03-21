@@ -1,10 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import card1 from '../../images/blue.png'
-import card2 from '../../images/green.png'
-import card3 from '../../images/pink.png'
-import card4 from '../../images/red.png'
+
 import './Home.css'
 import fakeData from '../fakeData/fakeData.json'
 import { useState } from 'react';
@@ -18,12 +15,14 @@ const Home = () => {
     }, [])
     return (
     <>    
-            <div>
-            {
-                ticket.map(ticket => <Ticket key={ticket.color} ticket={ticket} ></Ticket>)
-            }
-            </div>
-        <Container  className="justify-content-center">
+            <Container>
+                <Row>
+                    {
+                        ticket.map(ticket => <Col><Ticket key={ticket.id} ticket={ticket} ></Ticket></Col>)
+                    }
+                </Row>
+            </Container>
+        {/* <Container  className="justify-content-center">
             <Row>
                 <Col>
                 <div className="card text-white" >
@@ -66,7 +65,7 @@ const Home = () => {
                 </div>
                 </Col>
             </Row>
-        </Container>
+        </Container> */}
     </>    
     );
 };

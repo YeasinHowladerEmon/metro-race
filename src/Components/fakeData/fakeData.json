@@ -1,39 +1,51 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "city": "Dhaka",
-    "tk": 50,
+    "name": "ONE TIME TICKET",
+    "location": "mirpur",
+    "location2": "dhaka",
+    "tk": 100,
     "taka": 50,
     "taka": 50,
     "taka": 50,
     "email": "ecroisdall0@nymag.com",
-    "color": "blue"
+    "img": "https://i.postimg.cc/7hVbRrgq/blue.png"
   }, {
-    "id": "2",
+    "id": 2,
+    "name": "ONE DAY PASS",
     "city": "Khulna",
-    "tk": 1000,
+    "location": "mirpur",
+    "location2": "dhaka",
+    "tk": 500,
     "taka": 80,
     "taka": 80,
     "taka": 80,
     "email": "tdudley1@goodreads.com",
-    "color": "green"
+    "img": "https://i.postimg.cc/y8NnvVFY/green.png"
   }, {
-    "id": "3",
+    "id": 3,
+    "name": "MONTHLY PASS",
     "city": "Shylet",
-    "tk": 6000,
+    "location": "mirpur",
+    "location2": "dhaka",
+    "tk": 1500,
     "taka": 120,
     "taka": 120,
     "taka": 120,
     "email": "ijeroch2@etsy.com",
-    "color": "pink"
+    "img": "https://i.postimg.cc/L5TB3751/pink.png"
   }, {
-    "id": "4",
+    "id": 4,
+    "name": "ANNUAL PASS",
     "city": "Chittagong",
+    "location": "mirpur",
+    "location2": "dhaka",
     "tk": 9000,
     "taka": 300,
     "taka": 300,
     "taka": 300,
     "email": "jlorrie3@npr.org",
-    "color": "red"
+    "img": "https://i.postimg.cc/J01j0qx4/red.png"
   }
 ]

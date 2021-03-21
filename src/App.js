@@ -13,6 +13,7 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import { createContext, useState } from 'react';
 import Tickets from './Components/Tickiets/Tickets';
+import fakeData from '../src/Components/fakeData/fakeData.json'
 
 export const UserContext = createContext();
 
@@ -40,12 +41,12 @@ function App() {
             <Route path="/login">
               <Login />
             </Route>
-            <Router path="/tickets">
+            <Route path="/tickets/:id">
               <Tickets />
-            </Router>
-            <Router exact path="/">
+            </Route>
+            <Route exact path="/">
               <Home />
-            </Router>
+            </Route>
           </Switch>
         </Router>
       </UserContext.Provider>
