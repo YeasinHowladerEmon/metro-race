@@ -10,6 +10,7 @@ const Header = () => {
     return (
         <>
             <ul className="nav justify-content-center" bg="dark">
+                <a class="navbar-brand" href="/">Metro Race</a>
                 <li className="nav-item">
                 <Link className="nav-link" to="/home">Home</Link>
                 </li>

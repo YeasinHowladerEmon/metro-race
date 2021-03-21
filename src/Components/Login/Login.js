@@ -18,6 +18,7 @@ if (!firebase.apps.length) {
 const Login = () => {
     const [newLogin, setNewLogin] = useState(true)
     const [user, setUser] = useContext(UserContext);
+    
 
     const history = useHistory();
     const location = useLocation();
@@ -86,6 +87,7 @@ const Login = () => {
                     newUserInfo.success = true
                     setUser(newUserInfo)
                     history.replace(from);
+                    updateUserName(user.name)
                     // ...
                 })
                 .catch((error) => {
@@ -105,6 +107,7 @@ const Login = () => {
                     newUserInfo.success = true
                     setUser(newUserInfo)
                     history.replace(from)
+                    console.log('sign in user', res.user);
                 })
                 .catch((error) => {
                     const newUserInfo = { ...user };
@@ -115,6 +118,17 @@ const Login = () => {
         }
 
         e.preventDefault()
+    }
+    const updateUserName = name => {
+        var user = firebase.auth().currentUser;
+
+        user.updateProfile({
+          displayName: name
+        }).then(function() {
+            
+        }).catch(function(error) {
+          // An error happened.
+        });
     }
     return (
     <>

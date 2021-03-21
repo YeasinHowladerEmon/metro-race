@@ -23,7 +23,8 @@ const Destination = () => {
     <>
     {
       tickets === undefined && <div>
-        <h1>hey plz go home page and select ticket buy</h1>
+        <h1 style={{textAlign:"center", color:"red"}}>sorry bug issus attack  destination</h1>
+        <h2 style={{textAlign:"center",}}>hey plz go home page and select ticket buy</h2>
       </div>
     }
         <div style={{ height: "100vh", backgroundColor: "gray" }}>
